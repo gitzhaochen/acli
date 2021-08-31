@@ -3,7 +3,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const WebpackBar = require('webpackbar')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
-const slash = require('slash')
+const path = require('path')
 const paths = require('../paths')
 const { isDevelopment, isProduction } = require('../env')
 const { imageInlineSizeLimit } = require('../conf')
@@ -53,16 +53,10 @@ module.exports = {
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.json'],
     alias: {
-      Src: paths.appSrc,
-      Components: paths.appSrcComponents,
-      Utils: paths.appSrcUtils
+      '@': paths.appSrc
     }
   },
-  externals: {
-    react: 'React',
-    'react-dom': 'ReactDOM',
-    axios: 'axios'
-  },
+  externals: {},
   module: {
     rules: [
       {
@@ -78,7 +72,7 @@ module.exports = {
       {
         test: /\.less$/,
         use: [
-          ...getCssLoaders(2),
+          ...getCssLoaders(3),
           {
             loader: 'less-loader',
             options: {
@@ -123,22 +117,11 @@ module.exports = {
         test: /\.svg$/,
         use: [
           {
-            loader: 'svg-sprite-loader',
-            options: {
-              symbolId: (filePath) => {
-                // 根据项目名区分id 支持不同项目使用同样的文件名
-                const reg = /([^/]+)\/src\/assets\/svg\/(\S+)\.svg$/i
-                const [, projectName, svgName] = reg.exec(slash(filePath))
-                return `${projectName}_${svgName}`
-              }
-            }
+            loader: 'svg-sprite-loader'
           },
           {
             // svg hover会显示title字段 将title标签过滤
-            loader(source) {
-              const pattern = /<title>[^<]*<\/title>/g
-              return source.replace(pattern, '')
-            }
+            loader: path.resolve(__dirname, './svg-title-filter-loader/index.js')
           }
         ]
       }

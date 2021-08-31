@@ -1,0 +1,58 @@
+// 定义margin 2-40 (2的倍数)
+.loopm(@i) when(@i <= 40) {
+  .m@{i} {
+    margin: @i + @zero_px;
+  }
+  .ml@{i} {
+    margin-left: @i + @zero_px;
+  }
+  .mt@{i} {
+    margin-top: @i + @zero_px;
+  }
+  .mr@{i} {
+    margin-right: @i + @zero_px;
+  }
+  .mb@{i} {
+    margin-bottom: @i + @zero_px;
+  }
+  .loopm((@i + 2));
+}
+
+.loopm5(@i) when(@i <= 40) {
+  .m@{i} {
+    margin: @i + @zero_px;
+  }
+  .ml@{i} {
+    margin-left: @i + @zero_px;
+  }
+  .mt@{i} {
+    margin-top: @i + @zero_px;
+  }
+  .mr@{i} {
+    margin-right: @i + @zero_px;
+  }
+  .mb@{i} {
+    margin-bottom: @i + @zero_px;
+  }
+  .loopp5((@i + 10));
+}
+
+.loopm(2);
+
+.loopm5(5);
+
+.m-auto {
+  margin: auto;
+}
+
+.m-0-auto {
+  margin: 0 auto;
+}
+
+.m-auto-0 {
+  margin: auto 0;
+}
+
+.ml100 {
+  margin-left: 100px;
+}

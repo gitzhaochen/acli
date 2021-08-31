@@ -1,0 +1,41 @@
+// 定义padding 2-40 (2的倍数)
+.loopp(@i) when(@i <= 40) {
+  .p@{i} {
+    padding: @i + @zero_px;
+  }
+  .pl@{i} {
+    padding-left: @i + @zero_px;
+  }
+  .pt@{i} {
+    padding-top: @i + @zero_px;
+  }
+  .pr@{i} {
+    padding-right: @i + @zero_px;
+  }
+  .pb@{i} {
+    padding-bottom: @i + @zero_px;
+  }
+  .loopp((@i + 2));
+}
+
+.loopp5(@i) when(@i <= 40) {
+  .p@{i} {
+    padding: @i + @zero_px;
+  }
+  .pl@{i} {
+    padding-left: @i + @zero_px;
+  }
+  .pt@{i} {
+    padding-top: @i + @zero_px;
+  }
+  .pr@{i} {
+    padding-right: @i + @zero_px;
+  }
+  .pb@{i} {
+    padding-bottom: @i + @zero_px;
+  }
+  .loopp5((@i + 10));
+}
+
+.loopp(2);
+.loopp5(5);

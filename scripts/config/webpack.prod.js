@@ -15,8 +15,7 @@ module.exports = merge(common, {
   output: {
     filename: 'js/[name].[contenthash:8].js',
     chunkFilename: 'js/async/[name].[contenthash:8].js',
-    path: paths.appBuild,
-    assetModuleFilename: 'images/[name].[contenthash:8].[ext]'
+    path: paths.appBuild
   },
   plugins: [
     new CleanWebpackPlugin(),

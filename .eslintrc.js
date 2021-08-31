@@ -1,12 +1,12 @@
-const OFF = 0;
-const WARN = 1;
-const ERROR = 2;
+const OFF = 0
+const WARN = 1
+const ERROR = 2
 
 module.exports = {
   env: {
     browser: true,
     es2021: true,
-    node: true,
+    node: true
   },
   extends: [
     'airbnb',
@@ -15,25 +15,25 @@ module.exports = {
     'plugin:unicorn/recommended',
     'plugin:promise/recommended',
     'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended',
+    'plugin:prettier/recommended'
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
       impliedStrict: true,
-      jsx: true,
+      jsx: true
     },
     ecmaVersion: 12,
-    sourceType: 'module',
+    sourceType: 'module'
   },
   plugins: ['react', 'unicorn', 'promise', '@typescript-eslint', 'prettier'],
   settings: {
     'import/resolver': {
       node: {
-        extensions: ['.tsx', '.ts', '.js', '.json'],
+        extensions: ['.tsx', '.ts', '.js', '.json']
       },
-      typescript: {},
-    },
+      typescript: {}
+    }
   },
   rules: {
     'import/extensions': [
@@ -42,8 +42,8 @@ module.exports = {
       {
         ts: 'never',
         tsx: 'never',
-        js: 'never',
-      },
+        js: 'never'
+      }
     ],
     'import/no-extraneous-dependencies': [ERROR, { devDependencies: true }],
     'import/prefer-default-export': OFF,
@@ -63,17 +63,17 @@ module.exports = {
           // 下划线
           snakeCase: false,
           // 大驼峰
-          pascalCase: true,
-        },
-      },
+          pascalCase: true
+        }
+      }
     ],
     'unicorn/no-array-instanceof': WARN,
     'unicorn/no-for-loop': WARN,
     'unicorn/prefer-add-event-listener': [
       ERROR,
       {
-        excludedPackages: ['koa', 'sax'],
-      },
+        excludedPackages: ['koa', 'sax']
+      }
     ],
     'unicorn/prefer-query-selector': ERROR,
     'unicorn/no-null': OFF,
@@ -98,6 +98,7 @@ module.exports = {
     'react/state-in-constructor': OFF,
     'react/jsx-props-no-spreading': OFF,
     'react/prop-types': OFF,
+    'react/require-default-props': OFF,
 
     'jsx-a11y/click-events-have-key-events': OFF,
     'jsx-a11y/no-noninteractive-element-interactions': OFF,
@@ -114,6 +115,6 @@ module.exports = {
     'global-require': OFF,
     'no-use-before-define': OFF,
     'no-restricted-syntax': OFF,
-    'no-continue': OFF,
-  },
-};
+    'no-continue': OFF
+  }
+}

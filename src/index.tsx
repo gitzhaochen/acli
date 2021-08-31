@@ -1,7 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import svgRequire from 'Utils/svgRequire'
+import svgRequire from '@/utils/svgRequire'
 import App from './App'
+import '@/assets/style/base/index.less'
 
 svgRequire()
 
@@ -9,4 +10,4 @@ if (module && module.hot) {
   module.hot.accept()
 }
 
-ReactDOM.render(<App name='vortesnail' age={25} />, document.querySelector('#root'))
+ReactDOM.render(<App />, document.querySelector('#root'))

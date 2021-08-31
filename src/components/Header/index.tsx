@@ -3,8 +3,8 @@ import './index.less'
 
 function Header() {
   return (
-    <div className='header'>
-      <span>I am Header</span>
+    <div className='header p10'>
+      <span>This is My Intro</span>
     </div>
   )
 }

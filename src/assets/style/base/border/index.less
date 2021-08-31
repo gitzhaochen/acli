@@ -1,0 +1,117 @@
+.bc_primary,
+.bc_primary_hover:hover {
+  border-color: @c_primary;
+}
+
+.bc_success,
+.bc_success_hover:hover {
+  border-color: @c_success;
+}
+
+.bc_success_l,
+.bc_success_l_hover:hover {
+  border-color: @c_success_l;
+}
+
+.bc_success_ll,
+.bc_success_ll_hover:hover {
+  border-color: @c_success_ll;
+}
+
+.bc_info,
+.bc_info_hover:hover {
+  border-color: @c_info;
+}
+
+.bc_info_l,
+.bc_info_l_hover:hover {
+  border-color: @c_info_l;
+}
+
+.bc_info_ll,
+.bc_info_ll_hover:hover {
+  border-color: @c_info_ll;
+}
+
+.bc_error,
+.bc_error_hover:hover {
+  border-color: @c_error;
+}
+
+.bc_error_l,
+.bc_error_l_hover:hover {
+  border-color: @c_error_l;
+}
+
+.bc_error_ll,
+.bc_error_ll_hover:hover {
+  border-color: @c_error_ll;
+}
+
+.bc_warning,
+.bc_warning_hover:hover {
+  border-color: @c_warning;
+}
+
+.bc_warning_l,
+.bc_warning_l_hover:hover {
+  border-color: @c_warning_l;
+}
+
+.bc_warning_ll,
+.bc_warning_ll_hover:hover {
+  border-color: @c_warning_ll;
+}
+
+.bc_warning_lll,
+.bc_warning_lll_hover:hover {
+  border-color: @c_warning_lll;
+}
+
+.bc_level_1,
+.bc_level_1_hover:hover {
+  border-color: #d5dae5;
+}
+
+.bc_level_2,
+.bc_level_2_hover:hover {
+  border-color: #e6eaf2;
+}
+
+.bc_level_3,
+.bc_level_3_hover:hover {
+  border-color: #f5f7fc;
+}
+
+.bw1 {
+  border-width: 1px;
+}
+
+.blw1 {
+  border-left-width: 1px;
+}
+
+.brw1 {
+  border-right-width: 1px;
+}
+
+.bbw1 {
+  border-bottom-width: 1px;
+}
+
+.btw1 {
+  border-top-width: 1px;
+}
+
+@border-style: solid, dashed, dotted, double;
+
+.make-border-classes(@i: length(@border-style)) when (@i > 0) {
+  .make-border-classes(@i - 1);
+  @style: extract(@border-style, @i);
+
+  .bs_@{style} {
+    border-style: @style;
+  }
+}
+
+.make-border-classes();

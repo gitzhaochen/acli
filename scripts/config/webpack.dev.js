@@ -14,11 +14,7 @@ module.exports = merge(common, {
   },
   devServer: {
     compress: true,
-    stats: 'errors-only',
-    clientLogLevel: 'silent',
-    open: true,
     hot: true,
-    noInfo: true,
     proxy: {
       ...require(paths.appProxySetup)
     }
